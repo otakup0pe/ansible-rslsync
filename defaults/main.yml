@@ -1,0 +1,18 @@
+---
+rslsync_device_name: "{{ansible_hostname}} sync node"
+rslsync_listen_port: 0 # default 0; randomize
+rslsync_storage_path: "/var/lib/resilio-sync"
+rslsync_pid_file: "/var/run/resilio-sync/sync.pid"
+rslsync_use_upnp: true
+rslsync_webui_ip: "127.0.0.1"
+rslsync_webui_port: "8888"
+rslsync_webui_login: "admin"
+rslsync_webui_password: ""
+rslsync_shared_folders: []
+rslsync_shared_relay_server: true
+rslsync_shared_tracker: true
+rslsync_shared_search_lan: true
+rslsync_shared_sync_trash: true
+rslsync_shared_overwrite_changes: false
+rslsync_shared_selective_sync: false
+rslsync_shared_known_hosts: []

@@ -1,0 +1,35 @@
+{
+  "device_name": "{{rslsync_device_name}}",
+  "listening_port": {{rslsync_listen_port}},
+  "storage_path": "{{rslsync_storage_path}}",
+  "pid_file": "{{rslsync_pid_file}}",
+  "use_upnp": {% if rslsync_use_upnp %}true{% else %}false{% endif %},
+{% if rslsync_shared_folders|length == 0 %}
+{{'  '}}"webui": {
+    "listen": "{{rslsync_webui_ip}}:{{rslsync_webui_port}}",
+    "login": "{{rslsync_webui_login}}",
+    "password": "{{rslsync_webui_password}}",
+    "allow_empty_password": false
+  }
+{% else %}
+  "shared_folders": [
+{% for folder in rslsync_shared_folders %}
+  {
+    "secret": "{{folder.secret}}",
+    "dir": "{{folder.dir}}",
+    "use_relay_server": {% if folder.use_relay_server|default(rslsync_shared_relay_server) %}true{% else %}false{% endif %},
+    "use_tracker": {% if folder.use_tracker|default(rslsync_shared_tracker) %}true{% else %}false{% endif %},
+    "search_lan": {% if folder.search_lan|default(rslsync_shared_search_lan) %}true{% else %}false{% endif %},
+    "use_sync_trash": {% if folder.sync_trash|default(rslsync_shared_sync_trash) %}true{% else %}false{% endif %},
+    "overwrite_changes": {% if folder.overwrite_changes|default(rslsync_shared_overwrite_changes) %}true{% else %}false{% endif %},
+    "selective_sync": {% if folder.selective_sync|default(rslsync_shared_selective_sync) %}true{% else %}false{% endif %},
+    "known_hosts": [
+{% for host in folder.known_hosts|default(rslsync_shared_known_hosts) %}
+       "{{host}}"
+{% endfor %}
+    ]
+  }
+{% endfor %}
+  ]
+{% endif %}
+}

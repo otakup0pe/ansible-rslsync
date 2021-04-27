@@ -1,0 +1,4 @@
+---
+rslsync_artifact_archive: "{{rslsync_cache_dir}}/rslsync.tar.gz"
+rslsync_binary_path: "{{rslsync_bin_dir}}/rslsync"
+rslsync_config_path: "/etc/resilio-sync/config.json"

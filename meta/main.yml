@@ -1,0 +1,13 @@
+---
+dependencies: []
+galaxy_info:
+  author: Jonathan Freedman
+  license: MIT
+  galaxy_tags:
+    - rslsync
+  min_ansible_version: 2.10
+  description: "Install and run Resilio Sync"
+  platforms:
+    - name: Ubuntu
+      versions:
+        - all
