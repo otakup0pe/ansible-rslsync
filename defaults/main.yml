@@ -16,3 +16,4 @@ rslsync_shared_sync_trash: true
 rslsync_shared_overwrite_changes: false
 rslsync_shared_selective_sync: false
 rslsync_shared_known_hosts: []
+rslsync_users: []

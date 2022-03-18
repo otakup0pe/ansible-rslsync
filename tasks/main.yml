@@ -28,3 +28,10 @@
   no_log: true
   notify:
     - "restart rslsync"
+
+- name: "add users to rslsync group"
+  user:
+    name: "{{item}}"
+    groups: "rslsync"
+    append: "yes"
+  with_items: "{{rslsync_users}}"
