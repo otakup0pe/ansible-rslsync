@@ -3,7 +3,7 @@
 - name: "password cannot be blank"
   fail:
     msg: "password cannot be blank"
-  when: "{{rslsync_webui_password|default('') == ''}}"
+  when: rslsync_webui_password|default('') == ''
 
 - name: "add apt key"
   apt_key:
